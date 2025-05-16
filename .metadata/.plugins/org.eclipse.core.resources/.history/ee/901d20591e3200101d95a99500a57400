@@ -1,0 +1,9 @@
+package Regex;
+
+public class RegexWithout {
+
+	public RegexWithout() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

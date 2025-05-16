@@ -1,0 +1,72 @@
+package Regex;
+import java.util.Scanner;
+
+public class WithoutRegex {
+	static Scanner sc = new Scanner(System.in);
+	public WithoutRegex() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private static String longestMatch(String t,String p)
+	{
+		String result = "";
+		
+		for(int i=0;i<t.length();i++)
+		{
+			int ti = i;
+			int pi = 0;
+			
+			while(ti < t.length() && pi < p.length() )
+			{
+				char pc = p.charAt(pi);
+				if( pi+1 < p.length() && ( p.charAt(pi+1)=='+' ||p.charAt(pi+1)=='*'))
+				{
+					int count = 0;
+					char quantifier = p.charAt(pi+1);
+					char match = pc;
+					
+					while(t.charAt(ti) == match && ti < t.length()) {
+						count ++;
+						ti++;
+					}
+					
+					if(count < 1 && quantifier =='+') break;
+					
+					pi += 2;
+				}
+				
+				else {
+					if(t.charAt(ti) == p.charAt(pi))
+					{
+						ti++;
+						pi++;
+					}
+					else 
+						break;
+				}
+				
+			}
+			if(pi == p.length()) {
+				String m = t.substring(i,ti);
+				if(m.length() > result.length())
+					result = m;
+			}
+		}
+		
+		return result; 
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Enter the text :");
+		String text = sc.nextLine();
+		
+		System.out.println("Enter the pattern :");
+		String pattern = sc.nextLine();
+		
+		System.out.println(text+" "+pattern);
+		
+		String result = longestMatch(text,pattern);
+		System.out.println("Result : "+ result);
+	}
+
+}
