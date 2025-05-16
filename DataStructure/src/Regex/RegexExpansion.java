@@ -1,0 +1,44 @@
+package Regex;
+import java.util.Scanner;
+
+public class RegexExpansion {
+ static Scanner sc = new Scanner(System.in);
+	public RegexExpansion() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static String convertExp(String t) {
+		StringBuilder result = new StringBuilder();
+		char ch = '\0';
+		int i=0;
+		while(i < t.length()){
+			if(t.charAt(i)<='z'&& t.charAt(i)>='a') {
+				ch = t.charAt(i);
+				i++;
+			}
+			else if(i<t.length() && t.charAt(i)<='9' && t.charAt(i)>='0')
+			{
+				int sum = 0;
+				while(i<t.length() && t.charAt(i)<='9' && t.charAt(i)>='0') {
+					sum = sum * 10 +(t.charAt(i)-'0');
+					i++;
+				}
+				while(sum -->0)
+				{
+					result.append(ch);
+				}
+			}
+				
+		}
+		return result.toString();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the text :");
+		String text = sc.nextLine();
+		
+		System.out.println("The expansion is :"+convertExp(text));
+	}
+
+}
