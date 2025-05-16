@@ -7,25 +7,6 @@ public class NumberExtraction {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static int maxNum(String t) {
-		int res = 0;
-		int i = 0;
-		while(i < t.length()) {
-			if(i<t.length() && t.charAt(i)>='0' && t.charAt(i)<='9' ) {
-				int sum = 0;
-				while(i<t.length() && t.charAt(i)>='0' && t.charAt(i)<='9' ) {
-					sum = sum * 10 +(t.charAt(i)-'0');
-					i++;
-				}
-				res = res > sum ? res : sum ;
-			}
-			else {
-				i++;
-			}
-		}
-		return res;
-	}
-	
 	public static List<Integer> convert(String t) {
 		ArrayList<Integer> ans = new ArrayList<>();
 		int i = 0; 
@@ -72,7 +53,6 @@ public class NumberExtraction {
 		
 		System.out.println("The numbers are "+convert(text));
 		System.out.println("The number sum from the text is "+ numberSum(text));
-		System.out.println("The max num is :"+maxNum(text));
 
 	}
 
