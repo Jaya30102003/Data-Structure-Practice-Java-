@@ -1,0 +1,9 @@
+package Regex;
+
+public class WildCardMatch {
+
+	public WildCardMatch() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

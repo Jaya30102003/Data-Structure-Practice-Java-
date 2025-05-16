@@ -1,0 +1,44 @@
+package Regex;
+import java.util.Scanner;
+
+public class WildCardMtach {
+static Scanner sc = new Scanner(System.in);
+	public WildCardMtach() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static boolean matchesPattern(String t,String p)
+	{
+		boolean result = false;
+		for(int i=0;i<t.length();i++)
+		{
+			int pi = 0;
+			int ti = i;
+		    if(ti < t.length() && pi < p.length() &&(t.charAt(ti) == p.charAt(pi) || p.charAt(pi) == '?'))
+			{
+				if(ti+1 < t.length() && pi+1 < p.length() && (p.charAt(pi+1)=='*')) {
+					while(pi+2 < p.length() && t.charAt(ti) != p.charAt(pi+2)) {
+						ti++;
+					}
+					pi++;
+				}
+				pi++;
+			}
+			
+			if(pi == p.length()) result = true;
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Enter the text :");
+		String text = sc.nextLine();
+		
+		System.out.println("Enter the pattern :");
+		String pattern = sc.nextLine();
+		
+	//	String result = longestMatch(text,pattern);
+		System.out.println("Result : "+ matchesPattern(text,pattern));
+	}
+
+}
