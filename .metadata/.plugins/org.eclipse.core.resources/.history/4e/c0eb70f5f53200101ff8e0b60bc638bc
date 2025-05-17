@@ -1,0 +1,39 @@
+package StringManipulation;
+import java.util.*;
+
+public class ReversingSentence {
+	static Scanner sc = new Scanner(System.in);
+	public ReversingSentence() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static String reverseSentence(String t) {
+		String res = "";
+		String sub;
+		int i = t.length()-1;
+		int startIndex = i;
+		while(i --> 0) {
+			if(t.charAt(i) == ' ') {
+				if(startIndex == t.length()-1) sub = t.substring(i+1);
+				else sub = t.substring(i+1, startIndex+1);
+				
+				startIndex = i;
+				res += sub;
+				res += " ";
+			}
+		}
+		sub = t.substring(0, startIndex+1);
+		res += sub;
+		
+		return res;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the word :");
+		String text = sc.nextLine();
+		
+		System.out.println("Result :"+ reverseSentence(text)+".");
+	}
+
+}

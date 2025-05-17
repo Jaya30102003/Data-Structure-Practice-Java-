@@ -1,0 +1,29 @@
+package StringManipulation;
+import java.util.*;
+
+public class PalindromeCheck {
+	static Scanner sc = new Scanner(System.in);
+	public PalindromeCheck() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static boolean check(String t) {
+		String res = "";
+		int i = t.length();
+		
+		while(i --> 0) {
+			res += t.charAt(i);
+		}
+		
+		return res.equals(t);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the word :");
+		String text = sc.nextLine();
+		
+		System.out.println("Result : " + check(text) != null?" The string is palindrome":"The string is not a palindrome");
+	}
+
+}
