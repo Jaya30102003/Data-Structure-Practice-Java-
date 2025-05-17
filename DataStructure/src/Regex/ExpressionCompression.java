@@ -1,0 +1,38 @@
+package Regex;
+import java.util.*;
+
+public class ExpressionCompression {
+	
+	static Scanner sc = new Scanner(System.in);
+	public ExpressionCompression() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static String compress(String t)
+	{
+		StringBuilder res = new StringBuilder();
+		
+		int i = 0;
+		while(i < t.length())
+		{
+			char ch = t.charAt(i);
+			int count = 0;
+			while( i<t.length() && t.charAt(i)==ch) {
+				count++;
+				i++;
+			}
+			res.append(ch).append(count);
+		}
+		
+		return res.toString();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the text :");
+		String text = sc.nextLine();
+		
+		System.out.println("The compressed form :"+ compress(text));
+	}
+
+}
