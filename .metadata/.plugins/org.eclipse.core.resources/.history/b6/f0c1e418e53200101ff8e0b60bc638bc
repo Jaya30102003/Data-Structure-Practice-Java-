@@ -75,14 +75,13 @@ public class NumberExtraction {
 					sum = sum * 10 +(t.charAt(i)-'0');
 					i++;
 				}
-		        /*		
-		        if(res.containsKey(sum)) {
+		/*		if(res.containsKey(sum)) {
 					res.put(sum,res.get(sum)+1);
 				}
 				else {
 					res.put(sum, 1);
 				} 
-		        */
+		*/
 				res.put(sum, res.getOrDefault(sum, 0)+1);
 			}
 			else {

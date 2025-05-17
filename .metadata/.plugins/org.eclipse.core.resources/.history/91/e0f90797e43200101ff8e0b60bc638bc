@@ -65,32 +65,6 @@ public class NumberExtraction {
 		return res;
 	}
 
-	public static HashMap<Integer, Integer> freq(String t){
-		HashMap<Integer, Integer> res = new HashMap<>();
-		int i = 0; 
-		while(i < t.length()) {
-			if(i<t.length() && t.charAt(i)>='0' && t.charAt(i)<='9' ) {
-				int sum = 0;
-				while(i<t.length() && t.charAt(i)>='0' && t.charAt(i)<='9' ) {
-					sum = sum * 10 +(t.charAt(i)-'0');
-					i++;
-				}
-		        /*		
-		        if(res.containsKey(sum)) {
-					res.put(sum,res.get(sum)+1);
-				}
-				else {
-					res.put(sum, 1);
-				} 
-		        */
-				res.put(sum, res.getOrDefault(sum, 0)+1);
-			}
-			else {
-				i++;
-			}
-		}
-		return res;
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the text :");
@@ -99,7 +73,6 @@ public class NumberExtraction {
 		System.out.println("The numbers are "+convert(text));
 		System.out.println("The number sum from the text is "+ numberSum(text));
 		System.out.println("The max num is :"+maxNum(text));
-		System.out.println("The Frequency table :"+freq(text));
 
 	}
 
