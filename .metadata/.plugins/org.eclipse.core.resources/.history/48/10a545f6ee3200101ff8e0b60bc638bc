@@ -1,0 +1,44 @@
+package Regex;
+import java.util.*;
+
+public class HashTag {
+	static Scanner sc = new Scanner(System.in);
+	public HashTag() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static List<String> hash(String t){
+		List<String> res = new ArrayList<>();
+		
+		int i = 0, startIndex = 0;
+		boolean flag = false;
+		String sub = "";
+		while(i < t.length()) {
+			if(t.charAt(i) == '#') {
+				startIndex = i + 1;
+				flag = true;
+			}
+			else if(t.charAt(i) == ' ' && flag) {
+				sub = t.substring(startIndex, i);
+				startIndex = 0;
+				flag = false;
+				res.add(sub);
+			}
+			else i++;
+		}
+		if(flag) {
+			sub = t.substring(startIndex);
+		}
+		
+		return res;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the text :");
+		String text = sc.nextLine();
+		
+		System.out.println("The Short form :"+ hash(text));
+	}
+
+}
