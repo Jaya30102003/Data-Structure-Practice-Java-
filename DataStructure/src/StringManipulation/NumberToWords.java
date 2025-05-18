@@ -1,0 +1,50 @@
+package StringManipulation;
+import java.util.*;
+
+public class NumberToWords {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public NumberToWords() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private static HashMap<Integer,String> map = new HashMap<>() {{
+		put(0,"zero");
+		put(1,"one");
+		put(2,"two");
+		put(3,"three");
+		put(4,"four");
+		put(5,"five");
+		put(6,"six");
+		put(7,"seven");
+		put(8,"eight");
+		put(9,"nine");
+	}};
+	
+	
+	public static String toWords(int a) {
+		String res = "";
+		int rem;
+		while(a > 10) {
+			rem = a % 10;
+			if(map.containsKey(rem)) {
+				res = " "+ map.get(rem) + res;
+			}
+			a /= 10;
+		}
+		if(map.containsKey(a))
+			res = map.get(a) + res;
+		return res;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter your input");
+		int a = sc.nextInt();
+		
+		System.out.println("The result is :"+ toWords(a));
+
+	}
+
+}

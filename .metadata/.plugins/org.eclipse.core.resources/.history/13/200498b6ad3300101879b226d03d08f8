@@ -1,0 +1,9 @@
+package StarPattern;
+
+public class FloydTriangle {
+
+	public FloydTriangle() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

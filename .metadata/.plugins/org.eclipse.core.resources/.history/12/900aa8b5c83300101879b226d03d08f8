@@ -1,0 +1,50 @@
+package StringManipulation;
+import java.util.*;
+
+public class MixedFraction {
+	static Scanner sc = new Scanner(System.in);
+	public MixedFraction() {
+		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public static int gcd(int a,int b) {
+		if( b == 0 )return a;
+		else return gcd(b,a%b);
+	}
+	
+	public static String converted(float t) {
+		String res = "";
+		
+		float a1 = t;
+		int a2 = (int)a1;
+		int count = 0;
+		
+		while(a1 != a2) {
+			a1 *= 10;
+			a2 = (int)a1;
+			count++;
+		}
+		
+		int denominator = 10^count;
+		int numerator = a2;
+		
+		int lcm = gcd(denominator,numerator);
+		denominator /= lcm;
+		numerator /= lcm;
+		
+		res = (numerator/denominator)+" "+(numerator%denominator)+"/"+denominator;
+		
+		return res;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the word :");
+		float t = sc.nextFloat();
+		
+		System.out.println("The mixed fraction :" + converted(t));
+
+	}
+
+}
