@@ -1,0 +1,31 @@
+package StarPattern;
+import java.util.*;
+
+public class SquarePattern {
+	
+	static Scanner sc = new Scanner(System.in);
+	public SquarePattern() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void square(int i) {
+		for(int j = 0;j< i;j++) {
+			for(int k = 0; k<i;k++) {
+				if( k == 0 || j == 0 || k == i-1 || j == i-1)
+					System.out.print("* ");
+				else
+					System.out.print(" ");
+			}
+			System.out.println();
+		}
+		return;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the side");
+		int i= sc.nextInt();
+		
+		square(i);
+	}
+
+}
